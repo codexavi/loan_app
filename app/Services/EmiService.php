@@ -47,8 +47,8 @@ class EmiService
 
         // Start building the raw SQL query to create the emi_details table
         $sql = "CREATE TABLE emi_details (
-            id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, -- Unique identifier for each record
-            clientid BIGINT UNSIGNED NOT NULL, -- ID of the client associated with the loan";
+            id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+            clientid BIGINT UNSIGNED NOT NULL,";
 
         // Add dynamic columns for each month in the loan range to store EMI amounts
         foreach ($columns as $col) {
