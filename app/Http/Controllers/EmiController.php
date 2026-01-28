@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Services\EmiService;
 
 class EmiController extends Controller
 {
     protected $emiService;
-
+    
     public function __construct(EmiService $emiService)
     {
         $this->emiService = $emiService;

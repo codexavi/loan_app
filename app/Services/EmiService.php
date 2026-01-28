@@ -4,7 +4,6 @@ namespace App\Services;
 
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
-use PDO;
 
 class EmiService
 {
@@ -93,8 +92,12 @@ class EmiService
 
             // Verify if the calculated month column exists within the predefined dynamic columns list
             if (in_array($columnName, $columns)) {
-                // Assign the last payment amount for the final installment, otherwise assign the standard EMI
-                $paymentData[$columnName] = ($i == $numPayments - 1) ? $lastPayment : $emi;
+                // Assign the last payment amount for the final installment, otherwise assign the standard EMI               
+                if ($i == $numPayments - 1) {
+                    $paymentData[$columnName] = $lastPayment;
+                } else {
+                    $paymentData[$columnName] = $emi;
+                }
             }
         }
         
